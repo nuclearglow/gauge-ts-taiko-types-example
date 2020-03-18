@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import { AfterSuite, BeforeSuite, Step } from "gauge-ts";
-import { client, closeBrowser, focus, goto, openBrowser, press, TaikoBrowserOptions, write } from 'taiko';
+import { BrowserOptions, client, closeBrowser, focus, goto, openBrowser, press, write } from 'taiko';
 import { getSearchForm, getSearchInputField, getSearchResultContainer, getSearchResults } from './../pages/google-search-selector';
 
 export default class StepImplementation {
@@ -14,7 +14,7 @@ export default class StepImplementation {
         const debugMode = process.env.debug_mode.toLowerCase() === 'true';
         const debugModeDelay = parseInt(process.env.debug_mode_delay, 10) || 0;
         // chromium browser configuration with dev tools and no cors
-        const browserConfiguration: TaikoBrowserOptions = {
+        const browserConfiguration: BrowserOptions = {
             headless: headlessMode,
             observe: debugMode,
             observeTime: debugModeDelay,
